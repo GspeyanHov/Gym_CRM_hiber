@@ -6,6 +6,7 @@ import static javax.persistence.CascadeType.ALL;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -13,8 +14,6 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 @Data
 @AllArgsConstructor
@@ -34,7 +33,7 @@ public class Trainee extends User{
     @JoinColumn(name = "training_id")
     private Training training;
 
-    @ManyToMany(mappedBy = "trainees")
+    @ManyToMany(mappedBy = "trainees", fetch = FetchType.EAGER)
     @Column(name = "trainer_id")
     private Set<Trainer> trainers;
 }

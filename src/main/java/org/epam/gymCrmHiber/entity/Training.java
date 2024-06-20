@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
@@ -28,13 +29,13 @@ public class Training {
     @Column(name = "training_name")
     private String trainingName;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private Set<Trainer> trainers;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private Set<Trainee> trainees;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private Set<TrainingType> types;
 
     @Column(name = "training_date")

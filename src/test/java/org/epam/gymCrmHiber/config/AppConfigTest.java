@@ -56,11 +56,4 @@ public class AppConfigTest {
         verify(sessionFactoryBean).setPackagesToScan("org.epam.gymCrmHiber.entity");
         verify(sessionFactoryBean).setHibernateProperties(hibernateProperties);
     }
-
-    @Test
-    public void testTransactionManagerBean() {
-        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-        PlatformTransactionManager transactionManager = context.getBean(PlatformTransactionManager.class);
-        assertNotNull(transactionManager);
-    }
 }

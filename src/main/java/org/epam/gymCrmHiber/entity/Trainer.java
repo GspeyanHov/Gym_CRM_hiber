@@ -1,5 +1,6 @@
 package org.epam.gymCrmHiber.entity;
 
+import java.util.HashSet;
 import java.util.Set;
 import static javax.persistence.CascadeType.ALL;
 import javax.persistence.Column;
